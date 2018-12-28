@@ -1,7 +1,9 @@
 package com.example.demo3h.model;
 
+import java.util.List;
+
 public class Business {
-    private Integer businessid;
+    private Integer bid;
 
     private String photo;
 
@@ -13,12 +15,22 @@ public class Business {
 
     private String address;
 
-    public Integer getBusinessid() {
-        return businessid;
+    private List<BusinessInfo> businessInfo;
+
+    public List<BusinessInfo> getBusinessInfo() {
+        return businessInfo;
     }
 
-    public void setBusinessid(Integer businessid) {
-        this.businessid = businessid;
+    public void setBusinessInfo(List<BusinessInfo> businessInfo) {
+        this.businessInfo = businessInfo;
+    }
+
+    public Integer getBid() {
+        return bid;
+    }
+
+    public void setBid(Integer bid) {
+        this.bid = bid;
     }
 
     public String getPhoto() {

@@ -1,6 +1,7 @@
 package com.example.demo3h.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -39,14 +40,7 @@ public class helloController {
 
         return "second";
     }
-    /**
-     * 生活服务界面
-     * */
-    @RequestMapping("/service")
-    public  String service(){
 
-        return "service";
-    }
 
     /**
     * 互帮互助界面
@@ -56,6 +50,17 @@ public class helloController {
 
         return "help";
     }
+    /**
+     * 详情界面
+     * */
+    @RequestMapping("product")
+    public String  product(){
+
+        return "product";
+    }
+
+
+
 
 
 
