@@ -68,7 +68,6 @@
     </div>
 
     <div class="products">
-        <!--Sorting & Filtering -->
         <div class="products_bar">
             <div class="section_container">
                 <div class="container">
@@ -77,30 +76,20 @@
                             <div class="products_bar_content d-flex flex-column flex-xxl-row align-items-start align-items-xxl-center justify-content-start">
                                 <div class="product_categories">
                                     <ul class="d-flex flex-row align-items-start justify-content-start flex-wrap">
-                                        <li class="active"><a href="#">全部</a></li>
-                                        <li><a href="#">热门职业</a></li>
-                                        <li><a href="#">知名企业</a></li>
-                                        <li><a href="#">应届生</a></li>
+                                        <li class="active" style="position:relative;top:60px;"><a href="#">全部</a></li>
+                                        <li style="position:relative;top:60px;"><a href="#" style="font-size: 25px">上门服务</a></li>
+                                        <li style="position:relative;top:60px;"><a href="#" style="font-size: 17px">清洁</a></li>
+                                        <li style="position:relative;top:60px;"><a href="#" style="font-size: 17px">搬家</a></li>
+                                        <li style="position:relative;top:60px;"><a href="#" style="font-size: 25px">预约服务</a></li>
+                                        <li style="position:relative;top:60px;"><a href="#" style="font-size: 17px">酒店</a></li>
+                                        <li style="position:relative;top:60px;"><a href="#" style="font-size: 17px">摄影</a></li>
+                                            <div class="search d7" style="position:relative;left:420px;bottom:70px; ">
+                                                <form action="" method="get">
+                                                    <input type="text" placeholder="搜索从这里开始..." name="title">
+                                                    <button type="submit"></button>
+                                                </form>
+                                            </div>
                                     </ul>
-                                </div>
-                                <div class="products_bar_side ml-xxl-auto d-flex flex-row align-items-center justify-content-start">
-                                    <div class="products_dropdown product_dropdown_sorting">
-                                        <div class="isotope_sorting_text"><span>按职位类别</span><i class="fa fa-caret-down" aria-hidden="true"></i></div>
-                                        <ul>
-                                            <li class="item_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'>酒店</li>
-                                            <li class="item_sorting_btn" data-isotope-option='{ "sortBy": "price" }'>建筑</li>
-                                            <li class="item_sorting_btn" data-isotope-option='{ "sortBy": "name" }'>金融</li>
-                                        </ul>
-                                    </div>
-                                    <div class="products_dropdown text-right product_dropdown_filter">
-                                        <div class="isotope_filter_text"><span>按行业类别</span><i class="fa fa-caret-down" aria-hidden="true"></i></div>
-                                        <ul>
-                                            <li class="item_filter_btn" data-filter="*">后厨</li>
-                                            <li class="item_filter_btn" data-filter=".hot">厨师长</li>
-                                            <li class="item_filter_btn" data-filter=".new">配菜</li>
-                                            <li class="item_filter_btn" data-filter=".sale">洗碗阿姨</li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -108,218 +97,40 @@
                 </div>
             </div>
         </div>
+
         <div class="section_container">
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div class="products_container grid">
-
+                        <div class="products_container grid" >
                             <!-- Product -->
-                            <div class="product grid-item hot">
+                            <div class="product grid-item" th:each="business:${listInfo}">
                                 <div class="product_inner">
-                                    <div class="product_image">
-                                        <img src="images/product_1.jpg" alt="">
-                                        <div class="product_tag">hot</div>
-                                    </div>
+                                    <div class="product_image"><img src="images/product_2.jpg" alt=""  height="330px" width="350px"></div>
                                     <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">long red shirt</a></div>
-                                        <div class="product_price">$39.90</div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
+                                        <div class="product_title"><a href="#"><span th:text="${business.title}"></span></a></div>
+                                        <div class="product_title" th:each="busines:${business.business}"><span th:text="${busines.name}"></span></div>
+                                        <div class="product_price"><span th:text="${business.price}" style="font-size: 32px"></span>元起</div>
+                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">查看详情</a></div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Product -->
-                            <div class="product grid-item">
-                                <div class="product_inner">
-                                    <div class="product_image"><img src="images/product_2.jpg" alt=""></div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">hype grey shirt</a></div>
-                                        <div class="product_price">$19.50</div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product grid-item sale">
-                                <div class="product_inner">
-                                    <div class="product_image">
-                                        <img src="images/product_3.jpg" alt="">
-                                        <div class="product_tag">sale</div>
-                                    </div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">long sleeve jacket</a></div>
-                                        <div class="product_price">$32.20<span>RRP 64.40</span></div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product grid-item">
-                                <div class="product_inner">
-                                    <div class="product_image">
-                                        <img src="images/product_4.jpg" alt="">
-                                    </div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">denim men shirt</a></div>
-                                        <div class="product_price">$59.90</div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product grid-item">
-                                <div class="product_inner">
-                                    <div class="product_image">
-                                        <img src="images/product_5.jpg" alt="">
-                                    </div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">long red shirt</a></div>
-                                        <div class="product_price">$79.90</div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product grid-item new">
-                                <div class="product_inner">
-                                    <div class="product_image">
-                                        <img src="images/product_6.jpg" alt="">
-                                        <div class="product_tag">new</div>
-                                    </div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">hype grey shirt</a></div>
-                                        <div class="product_price">$59.90</div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product grid-item">
-                                <div class="product_inner">
-                                    <div class="product_image">
-                                        <img src="images/product_7.jpg" alt="">
-                                    </div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">long sleeve jacket</a></div>
-                                        <div class="product_price">$15.90</div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product grid-item sale">
-                                <div class="product_inner">
-                                    <div class="product_image">
-                                        <img src="images/product_8.jpg" alt="">
-                                        <div class="product_tag">sale</div>
-                                    </div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">denim men shirt</a></div>
-                                        <div class="product_price">$43.99<span>RRP 64.40</span></div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product grid-item hot">
-                                <div class="product_inner">
-                                    <div class="product_image">
-                                        <img src="images/product_9.jpg" alt="">
-                                        <div class="product_tag">hot</div>
-                                    </div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">long red shirt</a></div>
-                                        <div class="product_price">$39.90</div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product grid-item">
-                                <div class="product_inner">
-                                    <div class="product_image"><img src="images/product_10.jpg" alt=""></div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">hype grey shirt</a></div>
-                                        <div class="product_price">$19.50</div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product grid-item sale">
-                                <div class="product_inner">
-                                    <div class="product_image">
-                                        <img src="images/product_11.jpg" alt="">
-                                        <div class="product_tag">sale</div>
-                                    </div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">long sleeve jacket</a></div>
-                                        <div class="product_price">$32.20<span>RRP 64.40</span></div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product grid-item">
-                                <div class="product_inner">
-                                    <div class="product_image">
-                                        <img src="images/product_12.jpg" alt="">
-                                    </div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">denim men shirt</a></div>
-                                        <div class="product_price">$59.90</div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product grid-item hot">
-                                <div class="product_inner">
-                                    <div class="product_image">
-                                        <img src="images/product_13.jpg" alt="">
-                                        <div class="product_tag">hot</div>
-                                    </div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">long red shirt</a></div>
-                                        <div class="product_price">$39.90</div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product grid-item new">
-                                <div class="product_inner">
-                                    <div class="product_image">
-                                        <img src="images/product_14.jpg" alt="">
-                                        <div class="product_tag">new</div>
-                                    </div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">hype grey shirt</a></div>
-                                        <div class="product_price">$19.50</div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="#">add to cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-
+                        </div>
+                        <div style="position:relative;left:520px;">
+                            <span style="color: black" >< Before</span>
+                            <span style="color: black">1</span>
+                            <span style="color: black">...</span>
+                            <a href="#?page=199" style="color: black">199</a>
+                            <a href="#?page=2" style="color: black">After></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+
 
     <!-- Credits -->
     <div class="credits">
@@ -329,7 +140,9 @@
                     <div class="col">
                         <div class="credits_content d-flex flex-row align-items-center justify-content-end">
                             <div class="credits_text">
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Colorlib All rights reserved | More Templates <a href="#" target="_blank" title="岳阳life网">岳阳life网</a> - Collect from <a href="#" title="岳阳life网" target="_blank">岳阳life网</a>
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Colorlib All rights reserved | More Templates
+                                <a href="#" target="_blank" title="岳阳life网">岳阳life网</a> - Collect from <a href="#" title="岳阳life网" target="_blank">
+                                岳阳life网</a>
                             </div>
                         </div>
                     </div>
@@ -338,7 +151,6 @@
         </div>
     </div>
 </div>
-
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap-4.1.3/popper.js"></script>
 <script src="styles/bootstrap-4.1.3/bootstrap.min.js"></script>
@@ -353,5 +165,9 @@
 <script src="plugins/Isotope/isotope.pkgd.min.js"></script>
 <script src="plugins/Isotope/fitcolumns.js"></script>
 <script src="js/categories.js"></script>
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+<link rel="stylesheet" href="css/style.css">
 </body>
 </html>

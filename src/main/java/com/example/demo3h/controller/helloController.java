@@ -32,6 +32,14 @@ public class helloController {
         return "full";
     }
     /**
+     * 二手市场界面
+     * */
+    @RequestMapping("/second")
+    public  String second(){
+
+        return "second";
+    }
+    /**
      * 生活服务界面
      * */
     @RequestMapping("/service")

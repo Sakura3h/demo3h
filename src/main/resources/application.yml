@@ -17,8 +17,8 @@ spring:
     username: root
     password: 1234
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/yylife?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
-#redis配置
+    url: jdbc:mysql://localhost:3306/yylife?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
+  #redis配置
   redis:
     host: 127.0.0.1
     port: 6379
@@ -35,6 +35,7 @@ mybatis:
   type-aliases-package: com.example.demo3h.model
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    auto-mapping-behavior: full
 
 #shiro配置
 #solr配置

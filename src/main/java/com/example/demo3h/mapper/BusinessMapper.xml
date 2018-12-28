@@ -2,105 +2,41 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="mapper.BusinessMapper" >
   <resultMap id="BaseResultMap" type="model.Business" >
-    <id column="businessId" property="businessid" jdbcType="INTEGER" />
+    <id column="bid" property="bid" jdbcType="INTEGER" />
     <result column="photo" property="photo" jdbcType="VARCHAR" />
     <result column="uid" property="uid" jdbcType="INTEGER" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="address" property="address" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    businessId, photo, uid, phone, name, address
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from business
-    where businessId = #{businessid,jdbcType=INTEGER}
+
+
+  <resultMap id="BusinessResultMap" type="com.example.demo3h.model.Business" extends="baseBusinessResultMap">
+    <collection property="BusinessInfo" javaType="ArrayList" ofType="com.example.demo3h.model.BusinessInfo">
+      <id column="id" property="id"  />
+      <result column="bid" property="bid" />
+      <result column="title" property="title" />
+      <result column="btype" property="btype" />
+      <result column="address" property="address"/>
+      <result column="describe" property="describe" />
+      <result column="contact" property="contact" />
+      <result column="releasetime" property="releasetime" />
+      <result column="service" property="service" />
+      <result column="photo" property="photo" />
+      <result column="mobile" property="mobile" />
+      <result column="browse" property="browse" />
+    </collection>
+  </resultMap>
+
+  <select id="findBusinessInfoResultMap" resultMap="BusinessResultMap">
+    SELECT
+     *
+    FROM
+    `business_info` a
+    INNER JOIN
+     `business` b
+     ON
+     a.`bid`=b.`bid`
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from business
-    where businessId = #{businessid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="model.Business" >
-    insert into business (businessId, photo, uid, 
-      phone, name, address
-      )
-    values (#{businessid,jdbcType=INTEGER}, #{photo,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}, 
-      #{phone,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="model.Business" >
-    insert into business
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="businessid != null" >
-        businessId,
-      </if>
-      <if test="photo != null" >
-        photo,
-      </if>
-      <if test="uid != null" >
-        uid,
-      </if>
-      <if test="phone != null" >
-        phone,
-      </if>
-      <if test="name != null" >
-        name,
-      </if>
-      <if test="address != null" >
-        address,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="businessid != null" >
-        #{businessid,jdbcType=INTEGER},
-      </if>
-      <if test="photo != null" >
-        #{photo,jdbcType=VARCHAR},
-      </if>
-      <if test="uid != null" >
-        #{uid,jdbcType=INTEGER},
-      </if>
-      <if test="phone != null" >
-        #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null" >
-        #{address,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="model.Business" >
-    update business
-    <set >
-      <if test="photo != null" >
-        photo = #{photo,jdbcType=VARCHAR},
-      </if>
-      <if test="uid != null" >
-        uid = #{uid,jdbcType=INTEGER},
-      </if>
-      <if test="phone != null" >
-        phone = #{phone,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null" >
-        address = #{address,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where businessId = #{businessid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="model.Business" >
-    update business
-    set photo = #{photo,jdbcType=VARCHAR},
-      uid = #{uid,jdbcType=INTEGER},
-      phone = #{phone,jdbcType=VARCHAR},
-      name = #{name,jdbcType=VARCHAR},
-      address = #{address,jdbcType=VARCHAR}
-    where businessId = #{businessid,jdbcType=INTEGER}
-  </update>
+
 </mapper>
