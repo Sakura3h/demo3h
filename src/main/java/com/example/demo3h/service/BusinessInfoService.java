@@ -14,4 +14,6 @@ public interface BusinessInfoService {
 
     List<BusinessInfo> findBusinessInfoResultMap();
 
+    BusinessInfo findById(int id);
+
 }

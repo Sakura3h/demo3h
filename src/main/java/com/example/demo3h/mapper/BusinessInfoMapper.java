@@ -13,6 +13,14 @@ import java.util.List;
 @Mapper
 public interface BusinessInfoMapper {
 
+    /**
+     *查询所有商户表下所有发布的商品信息
+     */
     List<BusinessInfo> findBusinessInfoResultMap();
+
+    /**
+     * 查询单个商品的详情
+     */
+    BusinessInfo findById(int id);
 
 }

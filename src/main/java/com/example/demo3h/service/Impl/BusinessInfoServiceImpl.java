@@ -7,6 +7,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.awt.image.DataBufferUShort;
 import java.util.List;
 
 /**
@@ -23,6 +24,12 @@ public class BusinessInfoServiceImpl implements BusinessInfoService {
     @Cacheable(key = "'businessInfo'", value = "info")
     public  List<BusinessInfo> findBusinessInfoResultMap(){
         return businessInfoMapper.findBusinessInfoResultMap();
+}
+
+@Override
+@Cacheable(key = "#root.args[0]", value = "ServiceById")
+public  BusinessInfo findById(int id){
+        return businessInfoMapper.findById(id);
 }
 
 

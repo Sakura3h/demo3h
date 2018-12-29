@@ -20,7 +20,9 @@ public class ServiceController {
     @Resource
     private  BusinessInfoServiceImpl businessInfoServiceImpl;
 
-
+/**
+ *  查询所有商户表下所有发布的商品信息
+ * */
     @RequestMapping("/service")
     public  String Service(Model model){
         List<BusinessInfo> listInfo = businessInfoServiceImpl.findBusinessInfoResultMap();
@@ -29,6 +31,15 @@ public class ServiceController {
     }
     @RequestMapping("/")
     public  String find(){
+
+        return  "";
+    }
+    /**
+     *  查询单个商品的详情
+     * */
+    @RequestMapping("findByService")
+    public String findById(int id,Model model){
+
 
         return  "";
     }
