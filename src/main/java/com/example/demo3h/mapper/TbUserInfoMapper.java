@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface TbUserInfoMapper {
-    @Select("SELECT * FROM tb_userinfo")
+      @Select("SELECT * FROM tb_userinfo")
     List<TbUserInfo> findAll();
 
     @Delete("DELETE FROM tb_userinfo WHERE userid=#{id}")

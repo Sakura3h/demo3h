@@ -19,6 +19,26 @@ public class Porduct {
 
     private Integer browse;
 
+    private String pic;
+
+    private String ptname;
+
+    public String getPtname() {
+        return ptname;
+    }
+
+    public void setPtname(String ptname) {
+        this.ptname = ptname;
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
+    }
+
     public Integer getProid() {
         return proid;
     }
